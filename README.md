@@ -32,7 +32,7 @@ Add any of the desired indicators to your `status-left` or `status-right` tmux v
 
 *~/.tmux.conf*
 ```
-set -g status-right '#{acpi_battery_state} %a %Y-%m-%d %H:%M'
+set -g status-right '#{acpi_adapter_status} #{acpi_battery_percentage} #{acpi_battery_capacity} #{acpi_battery_health} #{acpi_thermal_status} %a %Y-%m-%d %H:%M'
 ```
 
 Available indicators are as follows:
