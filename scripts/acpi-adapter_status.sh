@@ -9,10 +9,10 @@ then
 
     if [ "${status}" == "off-line" ]
     then
-        echo "${plugged_icon}${status}"
+        echo "${unplugged_icon}${status}"
     elif [ "${status}" == "on-line" ]
     then
-        echo "${unplugged_icon}${status}"
+        echo "${plugged_icon}${status}"
     else
         echo "Adapter Unavailable"
     fi
