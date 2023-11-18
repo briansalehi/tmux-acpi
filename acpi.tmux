@@ -27,7 +27,7 @@ set_tmux_option() {
 }
 
 # colors
-acpi_format_begin=$(get_tmux_option "@acpi_format_begin" "#[fg=black]")
+acpi_format_begin=$(get_tmux_option "@acpi_format_begin" "#[fg=default]")
 acpi_format_end=$(get_tmux_option "@acpi_format_end" "#[fg=default]")
 
 # icons
