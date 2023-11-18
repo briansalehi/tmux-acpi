@@ -32,7 +32,7 @@ Add any of the desired indicators to your `status-left` or `status-right` tmux v
 
 *~/.tmux.conf*
 ```
-set -g status-right '#{acpi_adapter_status} #{acpi_battery_percentage} #{acpi_battery_capacity} #{acpi_battery_health} #{acpi_thermal_status} %a %Y-%m-%d %H:%M'
+set -g status-right '#{acpi_adapter_status} #{acpi_battery_percentage} #{acpi_battery_status} #{acpi_battery_capacity} #{acpi_battery_health} #{acpi_thermal_status} %a %b %d, %Y %H:%M'
 ```
 
 Available indicators are as follows:
@@ -47,7 +47,7 @@ Available indicators are as follows:
 ## Installation
 
 1. Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm).
-2. Add this plugin to your `~/.tmux.conf`: `set @plugin 'briansalehi/tmux-acpi`
+2. Add this plugin to your `~/.tmux.conf`: `set @plugin 'briansalehi/tmux-acpi'`
 3. Press `[prefix] + I` to install.
 
 ## Configuration
