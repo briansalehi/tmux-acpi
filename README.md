@@ -4,23 +4,23 @@ This `tmux` plugin creates following acpi information:
 
 - Battery State: `[Discharing | Charging | Not Charging]`
 
-![Battery State](battery-state.png)
+![Battery State](images/battery-state.png)
 
 - Battery Percentage: `[1% | 100%]`
 
-![Battery Percentage](battery-percentage.png)
+![Battery Percentage](images/battery-percentage.png)
 
 - Battery Capacity: `[design capacity / last full charge capacity] mAh` `[3100/4100] mAh`
 
-![Battery Capacity](battery-capacity.png)
+![Battery Capacity](images/battery-capacity.png)
 
 - Thermal Status: `[degrees C|F|Kelvin / critical temprature]` `[35/102 C | 100/215 F | 311/375 Kelvin]`
 
-![Thermal Status](thermal-status.png)
+![Thermal Status](images/thermal-status.png)
 
 - AC-Adapter Status: `[AC Connected | On Battery]`
 
-![AC Adapter Status](ac-adapter-status.png)
+![AC Adapter Status](images/ac-adapter-status.png)
 
 ## Usage
 
