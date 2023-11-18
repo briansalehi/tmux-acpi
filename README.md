@@ -69,5 +69,7 @@ set -g @acpi_icon_adapter_disconnected '🔌'
 set -g @acpi_icon_thermal_cold '❄️ '
 set -g @acpi_icon_thermal_hot '🔥'
 set -g @acpi_icon_thermal_critical '☢️ '
+
+# Values
 set -g @acpi_icon_thermal_unit 'Celsius' # Fahrenheit, Kelvin
 ```

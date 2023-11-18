@@ -26,6 +26,9 @@ set_tmux_option() {
     tmux set-option -qg "$1" "${status_value}"
 }
 
+# values
+acpi_thermal_unit="$(get_tmux_option "@acpi_icon_thermal_unit" "Celsius")"
+
 # colors
 acpi_format_begin="$(get_tmux_option "@acpi_format_begin")"
 acpi_format_end="$(get_tmux_option "@acpi_format_end")"
@@ -45,7 +48,7 @@ acpi_battery_status="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery-sta
 acpi_battery_percentage="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery-percentage.sh ${acpi_icon_battery_low} ${acpi_icon_battery_full})${acpi_format_end}"
 acpi_battery_capacity="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery-capacity.sh)${acpi_format_end}"
 acpi_battery_health="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery-health.sh ${acpi_icon_battery_health})${acpi_format_end}"
-acpi_thermal_status="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-thermal-status.sh ${acpi_icon_thermal_cold} ${acpi_icon_thermal_hot} ${acpi_icon_thermal_critical})${acpi_format_end}"
+acpi_thermal_status="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-thermal-status.sh ${acpi_icon_thermal_cold} ${acpi_icon_thermal_hot} ${acpi_icon_thermal_critical} ${acpi_thermal_unit})${acpi_format_end}"
 acpi_adapter_status="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-adapter_status.sh ${acpi_icon_adapter_connected} ${acpi_icon_adapter_disconnected})${acpi_format_end}"
 
 set_tmux_option "status-left"
