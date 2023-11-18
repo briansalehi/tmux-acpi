@@ -61,6 +61,7 @@ set -g @acpi_format_begin '#[fg=white,bg=colour236]'
 set -g @acpi_format_end '#[fg=white,bg=black]'
 
 # Icons
+set -g @acpi_icon_battery '🔋'
 set -g @acpi_icon_battery_charging '🔋'
 set -g @acpi_icon_battery_discharging '🪫'
 set -g @acpi_icon_battery_not_charging '🔋'
