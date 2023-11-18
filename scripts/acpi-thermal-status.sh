@@ -19,13 +19,13 @@ then
 
     if [ "${current_degree#*.}" -lt 80 ]
     then
-        echo "${thermal_cold_icon}${current_degree}/${critical_degree} ${thermal_unit}"
+        echo "${thermal_cold_icon}${current_degree}/${critical_degree}${thermal_unit}"
     elif [ "${current_degree#*.}" -ge 80 ]
     then
-        echo "${thermal_hot_icon}${current_degree}/${critical_degree} ${thermal_unit}"
+        echo "${thermal_hot_icon}${current_degree}/${critical_degree}${thermal_unit}"
     elif [ "${current_degree#*.}" -ge 100 ]
     then
-        echo "${thermal_critical_icon}${current_degree}/${critical_degree} ${thermal_unit}"
+        echo "${thermal_critical_icon}${current_degree}/${critical_degree}${thermal_unit}"
     else
         echo "Thermal Error"
     fi
