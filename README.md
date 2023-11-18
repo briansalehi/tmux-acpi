@@ -2,9 +2,9 @@
 
 This `tmux` plugin creates following acpi information:
 
-- Battery State: `[Discharing | Charging | Not Charging]`
+- Battery Status: `[Discharing | Charging | Not Charging]`
 
-![Battery State](images/battery-state.png)
+![Battery Status](images/battery-status.png)
 
 - Battery Percentage: `[1% | 100%]`
 
@@ -37,7 +37,7 @@ set -g status-right '#{acpi_adapter_status} #{acpi_battery_percentage} #{acpi_ba
 
 Available indicators are as follows:
 
-- Battery State: `#{acpi_battery_state}`
+- Battery Status: `#{acpi_battery_status}`
 - Battery Percentage: `#{acpi_battery_percentage}`
 - Battery Capacity: `#{acpi_battery_capacity}`
 - Battery Health: `#{acpi_battery_health}`
