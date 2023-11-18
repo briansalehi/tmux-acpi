@@ -61,14 +61,13 @@ set -g @acpi_format_begin '#[fg=white,bg=colour236]'
 set -g @acpi_format_end '#[fg=white,bg=black]'
 
 # Icons
-set -g @acpi_icon_battery '🔋'
-set -g @acpi_icon_battery_charging '🔋'
-set -g @acpi_icon_battery_discharging '🪫'
-set -g @acpi_icon_battery_not_charging '🔋'
+set -g @acpi_icon_battery_full '🔋'
+set -g @acpi_icon_battery_low '🪫'
 set -g @acpi_icon_battery_health '⛑ '
 set -g @acpi_icon_adapter_connected '⚡️'
 set -g @acpi_icon_adapter_disconnected '🔌'
 set -g @acpi_icon_thermal_cold '❄️ '
 set -g @acpi_icon_thermal_hot '🔥'
 set -g @acpi_icon_thermal_critical '☢️ '
+set -g @acpi_icon_thermal_unit 'Celsius' # Fahrenheit, Kelvin
 ```

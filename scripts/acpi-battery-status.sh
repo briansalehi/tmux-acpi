@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-charging_icon="$1"
-discharging_icon="$2"
-not_charging_icon="$3"
-
 if command -v acpi &>/dev/null
 then
     state="$(acpi -b | grep 'Battery 0')"
@@ -11,9 +7,9 @@ then
     state="${state%%,*}"
 
     case "${state,,}" in
-        "charging") echo "${charging_icon}${state}" ;;
-        "discharging") echo "${discharging_icon}${state}" ;;
-        "not charging") echo "${not_charging_icon}${state}" ;;
+        "charging") echo "${state}" ;;
+        "discharging") echo "${state}" ;;
+        "not charging") echo "${state}" ;;
         *) echo "⚠️ No Battery"
     esac
 else
