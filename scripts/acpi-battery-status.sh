@@ -7,9 +7,9 @@ then
     state="${state%%,*}"
 
     case "${state,,}" in
-        "charging") echo "${state}" ;;
-        "discharging") echo "${state}" ;;
-        "not charging") echo "${state}" ;;
+        "charging") echo "Charging" ;;
+        "discharging") echo "Discharging" ;;
+        "not charging") echo "Not Charging" ;;
         *) echo "⚠️ No Battery"
     esac
 else
