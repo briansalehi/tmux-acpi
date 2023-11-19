@@ -5,6 +5,7 @@ This `tmux` plugin represents `acpi` information available on your status bar.
 ### Battery Status & Percentage
 
 ![Battery Status](images/acpi-battery-discharing.png)
+![Battery Status](images/acpi-battery-charging.png)
 
 Battery status indicator can be either of `Discharing`, `Charging`, and `Not
 Charging` values.
