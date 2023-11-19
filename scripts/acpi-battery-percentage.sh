@@ -7,8 +7,8 @@ if command -v acpi &>/dev/null
 then
     percentage="$(acpi -b | grep -o '[0-9]\+%')"
 
-    [ "$(wc -c <<< "${full_battery_icon}")" -gt 4 ] && full_battery_icon+=" "
-    [ "$(wc -c <<< "${low_battery_icon}")" -gt 4 ] && low_battery_icon+=" "
+    [ "${#full_battery_icon}" -gt 1 ] && full_battery_icon+=" "
+    [ "${#low_battery_icon}" -gt 1 ] && low_battery_icon+=" "
 
     if [ "${percentage%\%}" -gt 30 ]
     then

@@ -7,7 +7,8 @@ if command -v acpi &>/dev/null
 then
     status="$(acpi -a | grep 'Adapter 0' | awk '{print $3}')"
 
-    [ "$(wc -c <<< "${plugged_icon}")" -gt 4 ] && plugged_icon+=" "
+    [ "${#plugged_icon}" -gt 1 ] && plugged_icon+=" "
+    [ "${#unplugged_icon}" -gt 1 ] && unplugged_icon+=" "
 
     if [ "${status}" == "off-line" ]
     then

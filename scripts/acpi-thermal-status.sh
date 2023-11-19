@@ -13,10 +13,10 @@ then
         f|fahrenheit) opt="-f"; thermal_unit="°F" ;;
     esac
 
-    [ "$(wc -c <<< "${thermal_unit}")" -gt 4 ] && thermal_unit+=" "
-    [ "$(wc -c <<< "${thermal_cold_icon}")" -gt 4 ] && thermal_cold_icon+=" "
-    [ "$(wc -c <<< "${thermal_hot_icon}")" -gt 4 ] && thermal_hot_icon+=" "
-    [ "$(wc -c <<< "${thermal_critical_icon}")" -gt 4 ] && thermal_critical_icon+=" "
+    [ "${#thermal_unit}" -gt 1 ] && thermal_unit+=" "
+    [ "${#thermal_cold_icon}" -gt 1 ] && thermal_cold_icon+=" "
+    [ "${#thermal_hot_icon}" -gt 1 ] && thermal_hot_icon+=" "
+    [ "${#thermal_critical_icon}" -gt 1 ] && thermal_critical_icon+=" "
 
     degrees="$(acpi -ti "${opt}" | grep 'Thermal 0' | grep -o '[0-9]\+\.[0-9]' | xargs)"
     current_degree="${degrees% *}"
