@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Utilizes tmux status bar with acpi output
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -15,7 +16,7 @@ set_tmux_option() {
     # side should be either "left" or "right"
     status_value="$(get_tmux_option "${side}")"
 
-    # replace placeholders with values
+    # replace placeholders with values and combine all parts of status bar
     status_value="${status_value/\#\{acpi_battery_percentage\}/$acpi_battery_percentage}"
     status_value="${status_value/\#\{acpi_battery_capacity\}/$acpi_battery_capacity}"
     status_value="${status_value/\#\{acpi_battery_health\}/$acpi_battery_health}"
@@ -44,6 +45,7 @@ acpi_icon_adapter_connected="$(get_tmux_option "@acpi_icon_adapter_connected" "â
 acpi_icon_adapter_disconnected="$(get_tmux_option "@acpi_icon_adapter_disconnected" "ðŸ”Œ")"
 
 # commands
+#   NOTE: icons given to function arguments for dynamic visualization
 acpi_battery_status="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery-status.sh)${acpi_format_end}"
 acpi_battery_percentage="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery-percentage.sh ${acpi_icon_battery_low} ${acpi_icon_battery_full})${acpi_format_end}"
 acpi_battery_capacity="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery-capacity.sh)${acpi_format_end}"
@@ -51,5 +53,6 @@ acpi_battery_health="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery-hea
 acpi_thermal_status="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-thermal-status.sh ${acpi_icon_thermal_cold} ${acpi_icon_thermal_hot} ${acpi_icon_thermal_critical} ${acpi_thermal_unit})${acpi_format_end}"
 acpi_adapter_status="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-adapter_status.sh ${acpi_icon_adapter_connected} ${acpi_icon_adapter_disconnected})${acpi_format_end}"
 
+# update status bar
 set_tmux_option "status-left"
 set_tmux_option "status-right"
