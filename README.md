@@ -1,46 +1,58 @@
 # Tmux ACPI
 
-This `tmux` plugin creates following acpi information:
+This `tmux` plugin represents `acpi` information available on your status bar.
 
-- Battery Status: `[Discharing | Charging | Not Charging]`
+### Battery Status & Percentage
 
-![Battery Status](images/battery-status.png)
+![Battery Status](images/acpi-battery-discharing.png)
 
-- Battery Percentage: `[1% | 100%]`
+Battery status indicator can be either of `Discharing`, `Charging`, and `Not
+Charging` values.
 
-![Battery Percentage](images/battery-percentage.png)
+Battery percentage indicator shows the charged capacity of your battery in
+percentage from 0 to 100. Of course you will never witness the 0 percent of
+your battery, not even with time travel.
 
-- Battery Capacity: `[design capacity / last full charge capacity] mAh` `[3100/4100] mAh`
+### Battery Capacity & Health
 
-![Battery Capacity](images/battery-capacity.png)
+![Battery Capacity](images/acpi-battery-health.png)
 
-- Battery Health: `[89%]`
+Battery capacity indicator shows the last full charged capacity value of your
+battery. Note that this has nothing to do with how much time the adapter was
+connected to your laptop, this is the capacity that is functional! Yes we are
+all screwed and we don't know it until we see how much capacity is gone.
+There's not much on seeing dead cells of your battery unless you want to suffer
+witnessing your battery going down on a daily basis.
 
-![Battery Health](images/battery-health.png)
+### Thermal Status
 
-- Thermal Status: `[degrees C|F|Kelvin / critical temprature]` `[35/102 C | 100/215 F | 311/375 Kelvin]`
+![Thermal Status](images/acpi-thermal-cold.png)
 
-![Thermal Status](images/thermal-status.png)
+This indicator shows the tempraturue of your device. It could be cold, hot or
+reach its critical temprature where you should ask yourself what the heck are
+you doing to your device.
 
-- AC-Adapter Status: `[AC Connected | On Battery]`
+### AC-Adapter Status
 
-![AC Adapter Status](images/ac-adapter-status.png)
+![AC Adapter Status](images/acpi-adapter-online.png)
+![AC Adapter Status](images/acpi-adapter-offline.png)
 
 ## Usage
 
-Add any of the desired indicators to your `status-left` or `status-right` tmux variables as follows:
+Add any of the desired indicators to your `status-left` or `status-right` tmux
+variables as follows:
 
 *~/.tmux.conf*
 ```
-set -g status-right '#{acpi_adapter_status} #{acpi_battery_percentage} #{acpi_battery_status} #{acpi_battery_capacity} #{acpi_battery_health} #{acpi_thermal_status} %a %b %d, %Y %H:%M'
+set -g status-right '| #{acpi_adapter_status} | #{acpi_battery_percentage} #{acpi_battery_status} | #{acpi_battery_health} #{acpi_battery_capacity} | #{acpi_thermal_status}|'
 ```
 
 Available indicators are as follows:
 
-- Battery Status: `#{acpi_battery_status}`
 - Battery Percentage: `#{acpi_battery_percentage}`
 - Battery Capacity: `#{acpi_battery_capacity}`
 - Battery Health: `#{acpi_battery_health}`
+- Battery Status: `#{acpi_battery_status}`
 - Thermal Status: `#{acpi_thermal_status}`
 - AC-Adapter Status: `#{acpi_adapter_status}`
 
@@ -55,6 +67,7 @@ Available indicators are as follows:
 Following configuration variables can be set in `~/.tmux.conf`.
 Variables are shown with their corresponding default values.
 
+*~/.tmux.conf*
 ```
 # Colors
 set -g @acpi_format_begin '#[fg=white,bg=colour236]'
@@ -63,7 +76,7 @@ set -g @acpi_format_end '#[fg=white,bg=black]'
 # Icons
 set -g @acpi_icon_battery_full '🔋'
 set -g @acpi_icon_battery_low '🪫'
-set -g @acpi_icon_battery_health '⛑ '
+set -g @acpi_icon_battery_health '🩺'
 set -g @acpi_icon_adapter_connected '⚡️'
 set -g @acpi_icon_adapter_disconnected '🔌'
 set -g @acpi_icon_thermal_cold '❄️ '
