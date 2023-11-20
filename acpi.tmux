@@ -6,7 +6,7 @@ CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 get_tmux_option() {
     local option_value
     option_value="$(tmux show-option -qgv "${1}")"
-    echo "${option_value:-$2}"
+    [ "${option_value}" == '-' ] || echo "${option_value:-$2}"
 }
 
 set_tmux_option() {
