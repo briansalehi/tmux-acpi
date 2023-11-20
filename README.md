@@ -45,12 +45,13 @@ variables as follows:
 
 *~/.tmux.conf*
 ```
-set -g status-right '| #{acpi_adapter_status} | #{acpi_battery_percentage} #{acpi_battery_status} | #{acpi_battery_health} #{acpi_battery_capacity} | #{acpi_thermal_status}|'
+set -g status-right '| #{acpi_adapter_status} | #{acpi_battery_percentage} #{acpi_battery_status} ${acpi_battery_timer} | #{acpi_battery_health} #{acpi_battery_capacity} | #{acpi_thermal_status}|'
 ```
 
 Available indicators are as follows:
 
 - Battery Percentage: `#{acpi_battery_percentage}`
+- Battery Timer: `#{acpi_battery_timer}`
 - Battery Capacity: `#{acpi_battery_capacity}`
 - Battery Health: `#{acpi_battery_health}`
 - Battery Status: `#{acpi_battery_status}`
@@ -77,6 +78,9 @@ set -g @acpi_format_end '#[fg=white,bg=black]'
 # Icons
 set -g @acpi_icon_battery_full '🔋'
 set -g @acpi_icon_battery_low '🪫'
+set -g @acpi_icon_battery_charging '🚀'
+set -g @acpi_icon_battery_discharging '⚰️ '
+set -g @acpi_icon_battery_full_charge '💤'
 set -g @acpi_icon_battery_health '🩺'
 set -g @acpi_icon_adapter_connected '⚡️'
 set -g @acpi_icon_adapter_disconnected '🔌'
