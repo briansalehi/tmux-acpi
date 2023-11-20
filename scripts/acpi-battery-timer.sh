@@ -6,8 +6,8 @@ full_charge_icon="$3"
 
 if command -v acpi &>/dev/null
 then
-    output="$(acpi -b | grep 'Battery 0' | grep -oE '[0-9]{2}:[0-9]{2}:[0-9]{2} \w+')"
-    timer="${output% *}"
+    output="$(acpi -b | grep 'Battery 0' | grep -oE '[0-9]{2}:[0-9]{2}:[0-9]{2} \w+\s?\w+?')"
+    timer="${output%% *}"
     state="${output#* }"
 
     [ "${#discharging_icon}" -gt 1 ] && discharging_icon+=" "
