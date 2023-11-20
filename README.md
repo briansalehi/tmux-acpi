@@ -14,6 +14,12 @@ Battery percentage indicator shows the charged capacity of your battery in
 percentage from 0 to 100. Of course you will never witness the 0 percent of
 your battery, not even with time travel.
 
+Battery timer indicator shows how much time remains until battery is dead, or
+how much time it takes until battery is full. I would recommend using battery
+status indicator with timer indicator together to distinguish these two states
+in timer. I used icons to separate the states but you might want to disable
+these icons by setting their variables as empty.
+
 ### Battery Capacity & Health
 
 ![Battery Capacity](images/acpi-battery-health.png)
