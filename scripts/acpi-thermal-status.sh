@@ -21,9 +21,9 @@ then
     [ "${#thermal_critical_icon}" -gt 1 ] && thermal_critical_icon+=" "
 
     # retrieves current thermal degree based on user defined unit, celsius by default
-    degrees="$(acpi -ti "${opt}" | grep 'Thermal 0' | grep -o '[0-9]\+\.[0-9]' | xargs)"
-    current_degree="${degrees% *}"
-    critical_degree="${degrees#* }"
+    current_degree="$(acpi -ti "${opt}" | grep 'Thermal 0' | head -n1 | grep -o '[0-9]\+\.[0-9]')"
+    #passive_degree="$(acpi -ti "${opt}" | grep 'Thermal 0' | grep 'passive' | grep -o '[0-9]\+\.[0-9]')"
+    critical_degree="$(acpi -ti "${opt}" | grep 'Thermal 0' | grep 'critical' | grep -o '[0-9]\+\.[0-9]')"
 
     # thresholds can also be customized by user
     # but I've really got no more time to spend on this
