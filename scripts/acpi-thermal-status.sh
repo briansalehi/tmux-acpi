@@ -28,15 +28,15 @@ then
     # thresholds can also be customized by user
     # but I've really got no more time to spend on this
     # TODO: please contribute ♡
-    if [ "${current_degree#*.}" -lt 75 ]
+    if [ "${current_degree%.*}" -lt 75 ]
     then
-        echo "${thermal_cold_icon}${current_degree}/${critical_degree}${thermal_unit}"
-    elif [ "${current_degree#*.}" -ge 75 ]
+        echo -e "${thermal_cold_icon}${current_degree}/${critical_degree}${thermal_unit}"
+    elif [ "${current_degree%.*}" -ge 75 ] && [ "${current_degree%.*}" -lt 95 ]
     then
-        echo "${thermal_hot_icon}${current_degree}/${critical_degree}${thermal_unit}"
-    elif [ "${current_degree#*.}" -ge 95 ]
+        echo -e "${thermal_hot_icon}${current_degree}/${critical_degree}${thermal_unit}"
+    elif [ "${current_degree%.*}" -ge 95 ]
     then
-        echo "${thermal_critical_icon}${current_degree}/${critical_degree}${thermal_unit}"
+        echo -e "${thermal_critical_icon}${current_degree}/${critical_degree}${thermal_unit}"
     else
         echo "Thermal Error"
     fi
