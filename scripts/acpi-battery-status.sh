@@ -12,9 +12,10 @@ then
         "discharging") echo "Discharging" ;;
         "not charging") echo "Not Charging" ;;
         *)
-            if [ ${percentage:-0} -eq 100 ]
+        "full") echo "Fully Charged" ;;
+            if [ "${percentage:-0}" == "100%" ]
             then
-                echo "Not Charging"
+                echo "Fully Charged"
             else
                 echo "⚠️ No Battery"
             fi ;;
