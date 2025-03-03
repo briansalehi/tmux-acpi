@@ -15,7 +15,7 @@ then
     esac
 
     # add space to avoid overlaping of wide character icons with values
-    [ "${#thermal_unit}" -gt 1 ] && thermal_unit+=" "
+    [ "${#thermal_unit}" -gt 1 ] && thermal_unit+=""
     [ "${#thermal_cold_icon}" -gt 1 ] && thermal_cold_icon+=" "
     [ "${#thermal_hot_icon}" -gt 1 ] && thermal_hot_icon+=" "
     [ "${#thermal_critical_icon}" -gt 1 ] && thermal_critical_icon+=" "
