@@ -17,13 +17,9 @@ set_tmux_option() {
     status_value="$(get_tmux_option "${side}")"
 
     # replace placeholders with values and combine all parts of status bar
-    status_value="${status_value/\#\{acpi_battery_percentage\}/$acpi_battery_percentage}"
-    status_value="${status_value/\#\{acpi_battery_timer\}/$acpi_battery_timer}"
-    status_value="${status_value/\#\{acpi_battery_capacity\}/$acpi_battery_capacity}"
-    status_value="${status_value/\#\{acpi_battery_health\}/$acpi_battery_health}"
-    status_value="${status_value/\#\{acpi_battery_status\}/$acpi_battery_status}"
-    status_value="${status_value/\#\{acpi_thermal_status\}/$acpi_thermal_status}"
-    status_value="${status_value/\#\{acpi_adapter_status\}/$acpi_adapter_status}"
+    status_value="${status_value/\#\{acpi_battery\}/$acpi_battery}"
+    status_value="${status_value/\#\{acpi_thermal\}/$acpi_thermal}"
+    status_value="${status_value/\#\{acpi_adapter\}/$acpi_adapter}"
 
     tmux set-option -qg "$1" "${status_value}"
 }
