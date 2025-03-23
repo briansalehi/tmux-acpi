@@ -21,8 +21,8 @@ fi
 # add space to avoid overlaping of wide character icons with values
 #[ "${#low_battery_icon}" -gt 1 ] && low_battery_icon+=" "
 #[ "${#full_battery_icon}" -gt 1 ] && full_battery_icon+=" "
-#[ "${#discharging_icon}" -gt 1 ] && discharging_icon+=" "
-#[ "${#charging_icon}" -gt 1 ] && charging_icon+=" "
+[ "${#discharging_icon}" -gt 1 ] && discharging_icon+=" "
+[ "${#charging_icon}" -gt 1 ] && charging_icon+=" "
 #[ "${#health_icon}" -gt 1 ] && health_icon+=" "
 
 battery_status() {
