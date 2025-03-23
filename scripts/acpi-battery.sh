@@ -6,10 +6,11 @@ full_battery_icon="$2"
 discharging_icon="$3"
 charging_icon="$4"
 health_icon="$5"
-show_timer="$6"
-show_capacity="$7"
-show_health="$8"
-show_status="$9"
+timer_icon="$6"
+show_timer="$7"
+show_capacity="$8"
+show_health="$9"
+show_status="${10}"
 
 if ! command -v acpi &>/dev/null
 then
@@ -38,8 +39,8 @@ battery_status() {
     state="${state%%,*}"
 
     case "${state,,}" in
-        "charging") echo "${charging_icon}" ;;
-        "discharging") echo "${discharging_icon}" ;;
+        "charging") echo " ${charging_icon}${state}" ;;
+        "discharging") echo " ${discharging_icon}${state}" ;;
         *) ;;
     esac
 }
@@ -54,7 +55,7 @@ battery_capacity() {
     fi
 
     capacity_pair="$(acpi -bi | grep "Battery ${battery_index}" | grep -Eo '[0-9]+ mAh' | xargs)"
-    [ -n "${capacity_pair}" ] && awk '{printf "%d/%d %s\n",$3,$1,$4,$6}' <<< "${capacity_pair}"
+    [ -n "${capacity_pair}" ] && awk '{printf " %d/%d %s\n",$3,$1,$4,$6}' <<< "${capacity_pair}"
 }
 
 battery_health() {
@@ -67,7 +68,7 @@ battery_health() {
     fi
 
     health_output="$(acpi -bi | grep "Battery ${battery_index}" | grep -Eo '= [0-9]+')"
-    echo "${health_icon}${health_output/= /}%"
+    echo "${health_output:+ }${health_icon}${health_output/= /}%"
 }
 
 battery_timer() {
@@ -82,7 +83,7 @@ battery_timer() {
 
     output="$(acpi -b | grep "Battery ${battery_index}" | grep -oE '[0-9]{2}:[0-9]{2}:[0-9]{2} \w+\s?\w+?')"
     timer="${output%% *}"
-    echo "${timer}"
+    echo "${timer:+ }${timer:+⏰}${timer}"
 }
 
 batteries=()
@@ -105,12 +106,12 @@ for index in $(seq 0 $(( ${#batteries[*]} - 1 )))
 do
     battery_number=""
 
-    if [ ${#batteries[*]} -gt 0 ]
+    if [ ${#batteries[*]} -gt 1 ]
     then
         battery_number="$((index + 1))"
     fi
 
-    output="${output}${output:+ }${battery_number}${battery_number:+:}${batteries[$index]}$(battery_status $index)$(battery_capacity $index)$(battery_timer $index)$(battery_health $index)"
+    output="${output}${output:+ }${battery_number}${battery_number:+:}${batteries[$index]}$(battery_status $index)$(battery_timer $index)$(battery_health $index)$(battery_capacity $index)"
 done
 
 echo "${output}"

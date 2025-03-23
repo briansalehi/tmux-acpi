@@ -46,6 +46,8 @@ acpi_icon_adapter_connected="$(get_tmux_option "@acpi_icon_adapter_connected" "�
 acpi_icon_adapter_disconnected="$(get_tmux_option "@acpi_icon_adapter_disconnected" "🔌")"
 acpi_icon_battery_discharging="$(get_tmux_option "@acpi_icon_battery_discharging" "🡇 ")"
 acpi_icon_battery_charging="$(get_tmux_option "@acpi_icon_battery_charging" "🡅 ")"
+acpi_icon_timer="$(get_tmux_option "@acpi_icon_timer" "⏰")"
+acpi_icon_capacity="$(get_tmux_option "@acpi_icon_capacity" "⏳")"
 acpi_battery_timer="$(get_tmux_option "@acpi_battery_timer" "+")"
 acpi_battery_capacity="$(get_tmux_option "@acpi_battery_capacity" "+")"
 acpi_battery_status="$(get_tmux_option "@acpi_battery_status" "+")"
@@ -53,7 +55,7 @@ acpi_battery_health="$(get_tmux_option "@acpi_battery_health" "+")"
 
 # commands
 #   NOTE: icons given to function arguments for dynamic visualization
-acpi_battery="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery.sh ${acpi_icon_battery_low} ${acpi_icon_battery_full} ${acpi_icon_battery_discharging} ${acpi_icon_battery_charging} ${acpi_icon_battery_health} ${acpi_battery_timer} ${acpi_battery_capacity} ${acpi_battery_health} ${acpi_battery_status})${acpi_format_end}"
+acpi_battery="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-battery.sh ${acpi_icon_battery_low} ${acpi_icon_battery_full} ${acpi_icon_battery_discharging} ${acpi_icon_battery_charging} ${acpi_icon_battery_health} ${acpi_icon_timer} ${acpi_icon_capacity} ${acpi_battery_timer} ${acpi_battery_capacity} ${acpi_battery_health} ${acpi_battery_status})${acpi_format_end}"
 acpi_thermal="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-thermal.sh ${acpi_icon_thermal_cold} ${acpi_icon_thermal_hot} ${acpi_icon_thermal_critical} ${acpi_thermal_unit})${acpi_format_end}"
 acpi_adapter="${acpi_format_begin}#($CURRENT_DIR/scripts/acpi-adapter.sh ${acpi_icon_adapter_connected} ${acpi_icon_adapter_disconnected})${acpi_format_end}"
 
