@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+battery_index="$1"
+
 if command -v acpi &>/dev/null
 then
-    state="$(acpi -b | grep 'Battery 0')"
+    state="$(acpi -b | grep "Battery ${battery_index:-0}")"
     state="${state#*: }"
     state="${state%%,*}"
     percentage="$(acpi -b | grep -o '[0-9]\+%')"
