@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # icons are selected based on battery percentage
-full_battery_icon="$1"
-low_battery_icon="$2"
+low_battery_icon="$1"
+full_battery_icon="$2"
 discharging_icon="$3"
 charging_icon="$4"
 
