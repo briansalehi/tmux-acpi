@@ -56,7 +56,7 @@ battery_capacity() {
     fi
 
     capacity_pair="$(acpi -bi | grep "Battery ${battery_index}" | grep -Eo '[0-9]+ mAh' | xargs)"
-    [ -n "${capacity_pair}" ] && awk '{printf " %s%d/%d %s\n",$3,$1,$4,$6}' <<< "${capacity_icon}${capacity_icon:+ }${capacity_pair}"
+    [ -n "${capacity_pair}" ] && echo -n " ${capacity_icon}${capacity_icon:+ }" && awk '{printf "%s%d/%d %s\n",$3,$1,$4,$6}' <<< "${capacity_pair}"
 }
 
 battery_health() {
