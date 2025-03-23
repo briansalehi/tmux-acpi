@@ -52,7 +52,7 @@ then
 
     for battery in "${batteries[@]}"
     do
-        output="${output}${output:+  }$((index + 1)):${batteries[$index]}$(battery_status $index)"
+        output="${output}${output:+ }$((index + 1)):${batteries[$index]}$(battery_status $index)"
         index=$((index + 1))
     done
 
