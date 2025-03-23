@@ -7,10 +7,11 @@ discharging_icon="$3"
 charging_icon="$4"
 health_icon="$5"
 timer_icon="$6"
-show_timer="$7"
-show_capacity="$8"
-show_health="$9"
-show_status="${10}"
+capacity_icon="$7"
+show_timer="$8"
+show_capacity="$9"
+show_health="${10}"
+show_status="${11}"
 
 if ! command -v acpi &>/dev/null
 then
@@ -55,7 +56,7 @@ battery_capacity() {
     fi
 
     capacity_pair="$(acpi -bi | grep "Battery ${battery_index}" | grep -Eo '[0-9]+ mAh' | xargs)"
-    [ -n "${capacity_pair}" ] && awk '{printf " %d/%d %s\n",$3,$1,$4,$6}' <<< "${capacity_pair}"
+    [ -n "${capacity_pair}" ] && awk '{printf " %s%d/%d %s\n",$3,$1,$4,$6}' <<< "${capacity_icon}${capacity_icon:+ }${capacity_pair}"
 }
 
 battery_health() {
