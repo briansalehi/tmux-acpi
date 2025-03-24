@@ -2,6 +2,10 @@
 
 This `tmux` plugin represents `acpi` information available on your status bar.
 
+## Battery
+
+The indicator `#{acpi_battery}` will bring all the information about the battery.
+
 ### Battery Status & Percentage
 
 ![Battery Status](images/acpi-battery-discharing.png)
@@ -31,7 +35,9 @@ all screwed and we don't know it until we see how much capacity is gone.
 There's not much on seeing dead cells of your battery unless you want to suffer
 witnessing your battery going down on a daily basis.
 
-### Thermal Status
+## Thermal Information
+
+The indicator `#{acpi_thermal}` will bring thermal status into your terminal.
 
 ![Thermal Status](images/acpi-thermal-cold.png)
 
@@ -39,7 +45,9 @@ This indicator shows the tempraturue of your device. It could be cold, hot or
 reach its critical temprature where you should ask yourself what the heck are
 you doing to your device.
 
-### AC-Adapter Status
+## AC-Adapter Status
+
+The indicator `#{acpi_adapter}` will bring adapter status into your terminal.
 
 ![AC Adapter Status](images/acpi-adapter-online.png)
 ![AC Adapter Status](images/acpi-adapter-offline.png)
@@ -51,18 +59,14 @@ variables as follows:
 
 *~/.tmux.conf*
 ```
-set -g status-right '| #{acpi_adapter_status} | #{acpi_battery_percentage} #{acpi_battery_status} ${acpi_battery_timer} | #{acpi_battery_health} #{acpi_battery_capacity} | #{acpi_thermal_status}|'
+set -g status-right '| #{acpi_adapter} | #{acpi_battery} | #{acpi_thermal}|'
 ```
 
 Available indicators are as follows:
 
-- Battery Percentage: `#{acpi_battery_percentage}`
-- Battery Timer: `#{acpi_battery_timer}`
-- Battery Capacity: `#{acpi_battery_capacity}`
-- Battery Health: `#{acpi_battery_health}`
-- Battery Status: `#{acpi_battery_status}`
-- Thermal Status: `#{acpi_thermal_status}`
-- AC-Adapter Status: `#{acpi_adapter_status}`
+- Battery Information: `#{acpi_battery}`
+- Thermal Information: `#{acpi_thermal}`
+- AC-Adapter Status: `#{acpi_adapter}`
 
 ## Installation
 
@@ -82,16 +86,16 @@ set -g @acpi_format_begin '#[fg=white,bg=colour236]'
 set -g @acpi_format_end '#[fg=white,bg=black]'
 
 # Icons
-set -g @acpi_icon_battery_full '🔋'
-set -g @acpi_icon_battery_low '🪫'
-set -g @acpi_icon_battery_charging '🚀'
-set -g @acpi_icon_battery_discharging '⚰️ '
-set -g @acpi_icon_battery_health '🩺'
-set -g @acpi_icon_adapter_connected '⚡️'
-set -g @acpi_icon_adapter_disconnected '🔌'
-set -g @acpi_icon_thermal_cold '❄️ '
-set -g @acpi_icon_thermal_hot '🔥'
-set -g @acpi_icon_thermal_critical '☢️ '
+set -g @acpi_icon_battery_full '-'
+set -g @acpi_icon_battery_low '-'
+set -g @acpi_icon_battery_charging '-'
+set -g @acpi_icon_battery_discharging '-'
+set -g @acpi_icon_battery_health '-'
+set -g @acpi_icon_adapter_connected '-'
+set -g @acpi_icon_adapter_disconnected '-'
+set -g @acpi_icon_thermal_cold '-'
+set -g @acpi_icon_thermal_hot '-'
+set -g @acpi_icon_thermal_critical '-'
 
 # Values
 set -g @acpi_icon_thermal_unit 'Celsius' # Fahrenheit, Kelvin
