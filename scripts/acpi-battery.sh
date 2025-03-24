@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 
 # icons are selected based on battery percentage
-low_battery_icon="$1"
-full_battery_icon="$2"
-discharging_icon="$3"
-charging_icon="$4"
-health_icon="$5"
-timer_icon="$6"
-capacity_icon="$7"
-show_timer="$8"
-show_capacity="$9"
-show_health="${10}"
-show_status="${11}"
+low_battery_icon="$1" # acpi_icon_battery_low
+full_battery_icon="$2" # acpi_icon_battery_full
+discharging_icon="$3" # acpi_icon_battery_discharging
+charging_icon="$4" # acpi_icon_battery_charging
+health_icon="$5" # acpi_icon_battery_health
+timer_icon="$6" # acpi_icon_timer
+capacity_icon="$7" # acpi_icon_capacity
+show_timer="$8" # acpi_battery_timer
+show_capacity="$9" # acpi_battery_capacity
+show_health="${10}" # acpi_battery_health
+show_status="${11}" # acpi_battery_status
+
 
 if ! command -v acpi &>/dev/null
 then
@@ -84,7 +85,7 @@ battery_timer() {
 
     output="$(acpi -b | grep "Battery ${battery_index}" | grep -oE '[0-9]{2}:[0-9]{2}:[0-9]{2} \w+\s?\w+?')"
     timer="${output%% *}"
-    echo "${timer:+ }${timer:+⏰}${timer}"
+    echo "${timer:+ }${timer:+${timer_icon}}${timer}"
 }
 
 batteries=()
