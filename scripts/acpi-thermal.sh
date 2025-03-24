@@ -5,6 +5,10 @@ thermal_hot_icon="$2"
 thermal_critical_icon="$3"
 thermal_unit="$4"
 
+[ "${thermal_cold_icon}" == "-" ] && thermal_cold_icon=""
+[ "${thermal_hot_icon}" == "-" ] && thermal_hot_icon=""
+[ "${thermal_critical_icon}" == "-" ] && thermal_critical_icon=""
+
 if command -v acpi &>/dev/null
 then
     # thermal unit can be customized by user

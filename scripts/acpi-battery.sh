@@ -13,6 +13,13 @@ show_capacity="$9" # acpi_battery_capacity
 show_health="${10}" # acpi_battery_health
 show_status="${11}" # acpi_battery_status
 
+[ "${low_battery_icon}" == "-" ] && low_battery_icon=""
+[ "${full_battery_icon}" == "-" ] && full_battery_icon=""
+[ "${discharging_icon}" == "-" ] && discharging_icon=""
+[ "${charging_icon}" == "-" ] && charging_icon=""
+[ "${health_icon}" == "-" ] && health_icon=""
+[ "${timer_icon}" == "-" ] && timer_icon=""
+[ "${capacity_icon}" == "-" ] && capacity_icon=""
 
 if ! command -v acpi &>/dev/null
 then

@@ -4,6 +4,9 @@
 plugged_icon="$1"
 unplugged_icon="$2"
 
+[ "${plugged_icon}" == "-" ] && plugged_icon=""
+[ "${unplugged_icon}" == "-" ] && unplugged_icon=""
+
 if command -v acpi &>/dev/null
 then
     status="$(acpi -a | grep 'Adapter 0' | awk '{print $3}')"
